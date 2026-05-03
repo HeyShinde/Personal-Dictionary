@@ -1,6 +1,6 @@
 const GITHUB_REPO = "HeyShinde/Personal-Dictionary";
 const RELEASE_TAG = "v1.0.0";
-const DOWNLOAD_URL = `https://github.com/${GITHUB_REPO}/releases/download/${RELEASE_TAG}/Personal-Dictionary-v1.0.zip`;
+const DOWNLOAD_URL = `https://github.com/${GITHUB_REPO}/releases/download/${RELEASE_TAG}/Personal-Dictionary-v1.0.dmg`;
 const GITHUB_URL = `https://github.com/${GITHUB_REPO}`;
 const RELEASE_URL = `https://github.com/${GITHUB_REPO}/releases/tag/${RELEASE_TAG}`;
 
@@ -58,7 +58,7 @@ export default function Home() {
         </div>
 
         <p className="hero-meta">
-          macOS 26+ <span>•</span> Apple Silicon <span>•</span> Free & Open Source <span>•</span> 3.4 MB
+          macOS 26+ <span>•</span> Apple Silicon <span>•</span> Free & Open Source <span>•</span> 3.9 MB DMG
         </p>
 
         {/* App Preview */}
@@ -222,6 +222,28 @@ export default function Home() {
         <p className="hero-meta" style={{ marginTop: 16 }}>
           macOS 26+ <span>•</span> Apple Silicon <span>•</span> MIT License
         </p>
+
+        {/* Install Instructions */}
+        <div style={{
+          marginTop: 40,
+          maxWidth: 600,
+          textAlign: 'left',
+          background: 'rgba(255,255,255,0.03)',
+          border: '1px solid rgba(255,255,255,0.08)',
+          borderRadius: 16,
+          padding: '24px 28px'
+        }}>
+          <h4 style={{ fontSize: 14, fontWeight: 700, marginBottom: 16, color: '#f5f5f7' }}>📦 Installation</h4>
+          <div style={{ fontSize: 13, color: '#8e8e93', lineHeight: 1.8 }}>
+            <p>1. Download the <code style={{ background: 'rgba(108,92,231,0.15)', padding: '2px 6px', borderRadius: 4, color: '#6c5ce7' }}>.dmg</code> file</p>
+            <p>2. Open it and <strong style={{ color: '#f5f5f7' }}>drag the app to Applications</strong></p>
+            <p>3. <strong style={{ color: '#f5f5f7' }}>Right-click → Open</strong> on first launch (macOS Gatekeeper)</p>
+            <p>4. Toggle <strong style={{ color: '#f5f5f7' }}>&quot;Launch at Login&quot;</strong> in the menu bar for always-on access</p>
+          </div>
+          <p style={{ fontSize: 11, color: '#636366', marginTop: 12 }}>
+            ⚠️ Since this is an open-source app not distributed via the App Store, macOS will ask for confirmation on the first launch. This is normal and safe.
+          </p>
+        </div>
       </section>
 
       {/* Footer */}
