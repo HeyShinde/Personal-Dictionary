@@ -29,7 +29,7 @@ struct Personal_DictionaryApp: App {
     }()
 
     var body: some Scene {
-        WindowGroup {
+        Window("Personal Dictionary", id: "main") {
             ContentView()
                 .onAppear {
                     appDelegate.serviceProvider.modelContext = sharedModelContainer.mainContext
@@ -39,56 +39,11 @@ struct Personal_DictionaryApp: App {
         
         // Menu Bar Quick Add
         MenuBarExtra("Personal Dictionary", systemImage: "book.closed.fill") {
-            VStack(spacing: 0) {
-                QuickAddMenuView()
-                    .modelContainer(sharedModelContainer)
-                
-                Divider()
-                    .padding(.vertical, 4)
-                
-                // Settings row
-                HStack {
-                    Toggle("Launch at Login", isOn: Binding(
-                        get: { launchAtLogin },
-                        set: { newValue in
-                            launchAtLogin = newValue
-                            setLaunchAtLogin(newValue)
-                        }
-                    ))
-                    .toggleStyle(.switch)
-                    .controlSize(.mini)
-                    .font(.system(size: 11))
-                    .foregroundColor(.secondary)
-                }
-                .padding(.horizontal, 16)
-                .padding(.bottom, 8)
-                
-                HStack {
-                    Button("Open Dictionary") {
-                        NSApp.activate(ignoringOtherApps: true)
-                        if let window = NSApp.windows.first(where: { $0.title.contains("Personal Dictionary") || $0.isKeyWindow }) {
-                            window.makeKeyAndOrderFront(nil)
-                        } else {
-                            // Open a new window
-                            NSApp.sendAction(#selector(NSDocumentController.newDocument(_:)), to: nil, from: nil)
-                        }
-                    }
-                    .buttonStyle(.plain)
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.secondary)
-                    
-                    Spacer()
-                    
-                    Button("Quit") {
-                        NSApp.terminate(nil)
-                    }
-                    .buttonStyle(.plain)
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.secondary)
-                }
-                .padding(.horizontal, 16)
-                .padding(.bottom, 8)
-            }
+            MenuBarContentView(
+                launchAtLogin: $launchAtLogin,
+                setLaunchAtLogin: setLaunchAtLogin
+            )
+            .modelContainer(sharedModelContainer)
         }
         .menuBarExtraStyle(.window)
     }
@@ -106,6 +61,61 @@ struct Personal_DictionaryApp: App {
     }
 }
 
+// MARK: - Menu Bar Content
+struct MenuBarContentView: View {
+    @Binding var launchAtLogin: Bool
+    var setLaunchAtLogin: (Bool) -> Void
+    @Environment(\.openWindow) private var openWindow
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            QuickAddMenuView()
+            
+            Divider()
+                .padding(.vertical, 4)
+            
+            HStack {
+                Toggle("Launch at Login", isOn: Binding(
+                    get: { launchAtLogin },
+                    set: { newValue in
+                        launchAtLogin = newValue
+                        setLaunchAtLogin(newValue)
+                    }
+                ))
+                .toggleStyle(.switch)
+                .controlSize(.mini)
+                .font(.system(size: 11))
+                .foregroundColor(.secondary)
+            }
+            .padding(.horizontal, 16)
+            .padding(.bottom, 8)
+            
+            HStack {
+                Button("Open Dictionary") {
+                    NSApp.setActivationPolicy(.regular)
+                    NSApp.activate(ignoringOtherApps: true)
+                    openWindow(id: "main")
+                }
+                .buttonStyle(.plain)
+                .font(.system(size: 11, weight: .medium))
+                .foregroundColor(.secondary)
+                
+                Spacer()
+                
+                Button("Quit") {
+                    NSApp.terminate(nil)
+                }
+                .buttonStyle(.plain)
+                .font(.system(size: 11, weight: .medium))
+                .foregroundColor(.secondary)
+            }
+            .padding(.horizontal, 16)
+            .padding(.bottom, 8)
+        }
+    }
+}
+
+// MARK: - App Delegate
 class AppDelegate: NSObject, NSApplicationDelegate {
     let serviceProvider = ServiceProvider()
     
@@ -114,16 +124,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSUpdateDynamicServices()
     }
     
-    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        if !flag {
-            // Re-open main window when clicking dock icon
-            for window in sender.windows {
-                if window.canBecomeMain {
-                    window.makeKeyAndOrderFront(self)
-                    return true
-                }
-            }
-        }
-        return true
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        // Don't quit when window is closed — keep menu bar alive
+        // Hide from dock when no windows visible
+        NSApp.setActivationPolicy(.accessory)
+        return false
     }
 }
