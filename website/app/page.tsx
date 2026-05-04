@@ -1,6 +1,6 @@
 const GITHUB_REPO = "HeyShinde/Personal-Dictionary";
-const RELEASE_TAG = "v1.0.0";
-const DOWNLOAD_URL = `https://github.com/${GITHUB_REPO}/releases/download/${RELEASE_TAG}/Personal-Dictionary-v1.0.dmg`;
+const RELEASE_TAG = "v1.0.1";
+const DOWNLOAD_URL = `https://github.com/${GITHUB_REPO}/releases/download/${RELEASE_TAG}/Personal-Dictionary-v1.0.1.dmg`;
 const GITHUB_URL = `https://github.com/${GITHUB_REPO}`;
 const RELEASE_URL = `https://github.com/${GITHUB_REPO}/releases/tag/${RELEASE_TAG}`;
 

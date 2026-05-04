@@ -20,4 +20,5 @@ DerivedData/
 *.dSYM.zip
 *.dSYM
 *.zip
+*.dmg
 build/
