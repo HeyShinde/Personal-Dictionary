@@ -348,11 +348,15 @@ struct WordRow: View {
 // MARK: - Word Detail View
 struct WordDetailView: View {
     @Bindable var wordEntry: WordEntry
+    @Environment(\.modelContext) private var modelContext
+    @Query private var allWords: [WordEntry]
     @State private var isLookingUp = false
     @State private var isPlayingAudio = false
     @State private var isGeneratingAI = false
     @State private var aiError: String?
     @State private var audioPlayer: AVAudioPlayer?
+    @State private var previewWord: String?
+    @State private var showingWordPreview = false
     
     var body: some View {
         ScrollView {
@@ -432,15 +436,7 @@ struct WordDetailView: View {
                     sectionCard(title: "Synonyms", icon: "arrow.triangle.branch", color: AppTheme.accent) {
                         FlowLayout(spacing: 6) {
                             ForEach(wordEntry.synonyms.components(separatedBy: ", ").filter { !$0.isEmpty }, id: \.self) { syn in
-                                Text(syn)
-                                    .font(.system(size: 12, weight: .medium))
-                                    .foregroundColor(AppTheme.accent)
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 5)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 6)
-                                            .fill(AppTheme.accent.opacity(0.12))
-                                    )
+                                wordTag(syn, color: AppTheme.accent)
                             }
                         }
                     }
@@ -452,15 +448,7 @@ struct WordDetailView: View {
                     sectionCard(title: "Antonyms", icon: "arrow.left.arrow.right", color: AppTheme.pink) {
                         FlowLayout(spacing: 6) {
                             ForEach(wordEntry.antonyms.components(separatedBy: ", ").filter { !$0.isEmpty }, id: \.self) { ant in
-                                Text(ant)
-                                    .font(.system(size: 12, weight: .medium))
-                                    .foregroundColor(AppTheme.pink)
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 5)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 6)
-                                            .fill(AppTheme.pink.opacity(0.12))
-                                    )
+                                wordTag(ant, color: AppTheme.pink)
                             }
                         }
                     }
@@ -483,6 +471,17 @@ struct WordDetailView: View {
             .padding(36)
         }
         .background(Color(red: 0.06, green: 0.06, blue: 0.08))
+        .sheet(isPresented: $showingWordPreview) {
+            if let word = previewWord {
+                WordPreviewSheet(
+                    word: word,
+                    isAlreadyAdded: allWords.contains(where: { $0.word.lowercased() == word.lowercased() }),
+                    onAdd: { result in
+                        addWordFromPreview(word: word, result: result)
+                    }
+                )
+            }
+        }
     }
     
     // MARK: - Header Card
@@ -805,7 +804,293 @@ struct WordDetailView: View {
             }
         }
     }
+    
+    // MARK: - Clickable Word Tag
+    private func wordTag(_ word: String, color: Color) -> some View {
+        Button(action: {
+            previewWord = word.trimmingCharacters(in: .whitespacesAndNewlines)
+            showingWordPreview = true
+        }) {
+            HStack(spacing: 4) {
+                Text(word)
+                    .font(.system(size: 12, weight: .medium))
+                Image(systemName: "arrow.up.right")
+                    .font(.system(size: 8, weight: .bold))
+            }
+            .foregroundColor(color)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 5)
+            .background(
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(color.opacity(0.12))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(color.opacity(0.06), lineWidth: 1)
+            )
+        }
+        .buttonStyle(.plain)
+        .onHover { hovering in
+            if hovering {
+                NSCursor.pointingHand.push()
+            } else {
+                NSCursor.pop()
+            }
+        }
+    }
+    
+    // MARK: - Add Word from Preview
+    private func addWordFromPreview(word: String, result: DictionaryService.LookupResult) {
+        let entry = WordEntry(word: word.lowercased())
+        entry.definition = result.definition
+        entry.example = result.examples.joined(separator: "\n")
+        entry.phonetic = result.phonetic
+        entry.partOfSpeech = result.partOfSpeech
+        entry.synonyms = result.synonyms.joined(separator: ", ")
+        entry.antonyms = result.antonyms.joined(separator: ", ")
+        entry.audioURL = result.audioURL
+        modelContext.insert(entry)
+        try? modelContext.save()
+        showingWordPreview = false
+    }
 }
+
+// MARK: - Word Preview Sheet
+struct WordPreviewSheet: View {
+    let word: String
+    let isAlreadyAdded: Bool
+    let onAdd: (DictionaryService.LookupResult) -> Void
+    
+    @Environment(\.dismiss) private var dismiss
+    @State private var lookupResult: DictionaryService.LookupResult?
+    @State private var isLoading = true
+    @State private var hasError = false
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            // Title Bar
+            HStack {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size: 18))
+                        .foregroundColor(Color(white: 0.4))
+                }
+                .buttonStyle(.plain)
+                
+                Spacer()
+                
+                Text("Word Preview")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundColor(Color(white: 0.5))
+                
+                Spacer()
+                
+                // Balance the layout
+                Color.clear.frame(width: 18, height: 18)
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 16)
+            .padding(.bottom, 12)
+            
+            if isLoading {
+                VStack(spacing: 16) {
+                    ProgressView()
+                        .scaleEffect(0.8)
+                    Text("Looking up \"\(word)\"...")
+                        .font(.system(size: 13))
+                        .foregroundColor(Color(white: 0.5))
+                }
+                .frame(maxWidth: .infinity, minHeight: 200)
+            } else if hasError || lookupResult == nil {
+                VStack(spacing: 12) {
+                    Image(systemName: "magnifyingglass")
+                        .font(.system(size: 28))
+                        .foregroundColor(Color(white: 0.3))
+                    Text("No definition found for \"\(word)\"")
+                        .font(.system(size: 14))
+                        .foregroundColor(Color(white: 0.5))
+                }
+                .frame(maxWidth: .infinity, minHeight: 200)
+            } else if let result = lookupResult {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                        // Word header
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text(word)
+                                .font(.system(size: 28, weight: .bold, design: .rounded))
+                                .foregroundColor(.white)
+                            
+                            HStack(spacing: 10) {
+                                if !result.phonetic.isEmpty {
+                                    Text(result.phonetic)
+                                        .font(.system(size: 13, design: .monospaced))
+                                        .foregroundColor(Color(white: 0.4))
+                                }
+                                if !result.partOfSpeech.isEmpty {
+                                    Text(result.partOfSpeech)
+                                        .font(.system(size: 10, weight: .semibold))
+                                        .foregroundColor(Color(red: 0, green: 0.72, blue: 0.58))
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 3)
+                                        .background(
+                                            Capsule().fill(Color(red: 0, green: 0.72, blue: 0.58).opacity(0.15))
+                                        )
+                                }
+                            }
+                        }
+                        
+                        Divider().overlay(Color(white: 0.15))
+                        
+                        // Definitions
+                        VStack(alignment: .leading, spacing: 8) {
+                            Label("Definitions", systemImage: "text.alignleft")
+                                .font(.system(size: 12, weight: .bold))
+                                .foregroundColor(Color(red: 0.42, green: 0.36, blue: 0.9))
+                            
+                            let defs = result.definition.components(separatedBy: "\n").filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
+                            ForEach(Array(defs.enumerated()), id: \.offset) { idx, def in
+                                HStack(alignment: .top, spacing: 8) {
+                                    Text("\(idx + 1)")
+                                        .font(.system(size: 10, weight: .bold, design: .monospaced))
+                                        .foregroundColor(Color(red: 0.42, green: 0.36, blue: 0.9))
+                                        .frame(width: 16, height: 16)
+                                        .background(Circle().fill(Color(red: 0.42, green: 0.36, blue: 0.9).opacity(0.15)))
+                                    Text(def)
+                                        .font(.system(size: 13))
+                                        .foregroundColor(Color(white: 0.75))
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
+                            }
+                        }
+                        
+                        // Examples
+                        if !result.examples.isEmpty {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Label("Examples", systemImage: "quote.opening")
+                                    .font(.system(size: 12, weight: .bold))
+                                    .foregroundColor(Color(red: 0, green: 0.72, blue: 0.58))
+                                
+                                ForEach(result.examples, id: \.self) { ex in
+                                    Text(ex)
+                                        .font(.system(size: 12, design: .serif))
+                                        .italic()
+                                        .foregroundColor(Color(white: 0.6))
+                                }
+                            }
+                        }
+                        
+                        // Synonyms
+                        if !result.synonyms.isEmpty {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Label("Synonyms", systemImage: "arrow.triangle.branch")
+                                    .font(.system(size: 12, weight: .bold))
+                                    .foregroundColor(Color(red: 0.42, green: 0.36, blue: 0.9))
+                                
+                                FlowLayout(spacing: 4) {
+                                    ForEach(result.synonyms.prefix(10), id: \.self) { syn in
+                                        Text(syn)
+                                            .font(.system(size: 11, weight: .medium))
+                                            .foregroundColor(Color(red: 0.45, green: 0.73, blue: 1.0))
+                                            .padding(.horizontal, 8)
+                                            .padding(.vertical, 3)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 5)
+                                                    .fill(Color(red: 0.45, green: 0.73, blue: 1.0).opacity(0.1))
+                                            )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .padding(24)
+                }
+                
+                Divider().overlay(Color(white: 0.15))
+                
+                // Action buttons
+                HStack(spacing: 12) {
+                    Button(action: {
+                        let encoded = word.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? word
+                        if let url = URL(string: "dict://\(encoded)") {
+                            NSWorkspace.shared.open(url)
+                        }
+                    }) {
+                        Label("Open in Dictionary", systemImage: "book")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(Color(white: 0.6))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color(white: 0.12))
+                            )
+                    }
+                    .buttonStyle(.plain)
+                    
+                    if isAlreadyAdded {
+                        HStack(spacing: 6) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .font(.system(size: 12))
+                            Text("In Dictionary")
+                                .font(.system(size: 12, weight: .semibold))
+                        }
+                        .foregroundColor(Color(red: 0, green: 0.72, blue: 0.58))
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(Color(red: 0, green: 0.72, blue: 0.58).opacity(0.12))
+                        )
+                    } else {
+                        Button(action: {
+                            if let result = lookupResult {
+                                onAdd(result)
+                            }
+                        }) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "plus.circle.fill")
+                                    .font(.system(size: 12))
+                                Text("Add to Dictionary")
+                                    .font(.system(size: 12, weight: .semibold))
+                            }
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(
+                                        LinearGradient(
+                                            colors: [Color(red: 0.42, green: 0.36, blue: 0.9), Color(red: 0.91, green: 0.26, blue: 0.58)],
+                                            startPoint: .leading, endPoint: .trailing
+                                        )
+                                    )
+                            )
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .padding(16)
+            }
+        }
+        .frame(width: 460)
+        .frame(minHeight: 400, maxHeight: 600)
+        .background(Color(red: 0.08, green: 0.08, blue: 0.1))
+        .onAppear { lookupWord() }
+    }
+    
+    private func lookupWord() {
+        isLoading = true
+        DispatchQueue.global(qos: .userInitiated).async {
+            let result = DictionaryService.shared.lookup(word: word)
+            DispatchQueue.main.async {
+                lookupResult = result
+                hasError = (result == nil)
+                isLoading = false
+            }
+        }
+    }
+}
+
 
 // MARK: - Category Constants & Picker
 struct WordCategories {
