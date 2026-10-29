@@ -1,0 +1,1417 @@
+---
+// Word data for the interactive macOS Simulator
+const WORDS_DATABASE = [
+  {
+    id: "venture",
+    word: "venture",
+    phonetic: "ˈven(t)SHər",
+    pos: "noun",
+    date: "3 May 2026",
+    category: "Business",
+    categoryIcon: "💼",
+    isFavorite: true,
+    definitions: [
+      "A risky or daring journey or undertaking.",
+      "A commercial enterprise or business undertaking involving considerable financial or operational risk.",
+      "To dare to do or say something that may be considered audacious or controversial."
+    ],
+    examples: [
+      "He invested all his savings into an AI venture that paid off handsomely.",
+      "She ventured into uncharted territory with her groundbreaking research.",
+      "Few entrepreneurs dared to venture into the space industry before the new wave."
+    ],
+    synonyms: ["enterprise", "undertaking", "project", "endeavor", "gamble", "exploit", "adventure", "speculation"],
+    antonyms: ["certainty", "assurance", "safety", "inaction", "sure thing"],
+    ai: {
+      simple: "Think of a venture like jumping into something exciting but uncertain — like launching a startup or venturing into the deep woods with a compass.",
+      sentence: "Launching their open-source macOS app was an ambitious venture, but one that soon gained thousands of dedicated writers and linguists.",
+      mnemonic: "Remember: 'Venture' shares its root with 'adVENTURE' — both require daring courage!",
+      tip: "Use 'joint venture' when two companies collaborate on a project; use 'venture forth' for dramatic or poetic movement."
+    }
+  },
+  {
+    id: "serendipity",
+    word: "serendipity",
+    phonetic: "ˌserənˈdipədē",
+    pos: "noun",
+    date: "14 May 2026",
+    category: "Philosophy",
+    categoryIcon: "✨",
+    isFavorite: true,
+    definitions: [
+      "The occurrence and development of events by chance in a happy or beneficial way.",
+      "Good fortune or luck in discovering pleasant or valuable things without intentionally seeking them."
+    ],
+    examples: [
+      "Finding my favorite rare book at a small corner thrift store was pure serendipity.",
+      "A touch of serendipity led the biochemist to observe the unexpected crystal formation.",
+      "Their chance meeting at the airport was a moment of life-changing serendipity."
+    ],
+    synonyms: ["fluke", "happy chance", "providence", "blessing", "good fortune", "coincidence", "kismet"],
+    antonyms: ["misfortune", "bad luck", "premeditation", "design", "deliberate plan"],
+    ai: {
+      simple: "Finding twenty dollars in the pocket of an old winter coat you haven't worn in months — finding joyful treasures by accident.",
+      sentence: "By pure serendipity, glancing through the library catalog introduced him to the exact 19th-century manuscript he didn't know he needed.",
+      mnemonic: "Coined by Horace Walpole from the Persian fairy tale 'The Three Princes of Serendip' who were always discovering wonders by chance.",
+      tip: "Often used as an adjective: 'serendipitous discovery'. Expresses an upbeat, grateful tone."
+    }
+  },
+  {
+    id: "ephemeral",
+    word: "ephemeral",
+    phonetic: "əˈfem(ə)rəl",
+    pos: "adjective",
+    date: "28 May 2026",
+    category: "Literature",
+    categoryIcon: "📖",
+    isFavorite: false,
+    definitions: [
+      "Lasting for a very short time; transitory; fleeting.",
+      "(Of a plant) having a very short life cycle, typically completing its cycle in a few weeks.",
+      "(Chiefly of paper or collectable items) designed for short-term use and not intended to be preserved."
+    ],
+    examples: [
+      "Fame in the digital age can be notoriously ephemeral.",
+      "The morning mist over the harbor was ephemeral, burning off as soon as the sun crested.",
+      "Poets have long celebrated the ephemeral beauty of cherry blossoms in April."
+    ],
+    synonyms: ["transient", "fleeting", "evanescent", "short-lived", "momentary", "fugitive", "brief"],
+    antonyms: ["eternal", "permanent", "everlasting", "perpetual", "enduring", "imperishable"],
+    ai: {
+      simple: "Something that vanishes like a soap bubble or morning dew: vivid, precious, but here for only a fleeting instant.",
+      sentence: "The vibrant colors of the sunset were breathtakingly ephemeral, fading into indigo within minutes.",
+      mnemonic: "From Greek 'ephemeros' (epi = on, hemera = day) — literally lasting just for a day!",
+      tip: "Often pairs with abstract nouns: 'ephemeral fame', 'ephemeral joy', 'ephemeral trends'."
+    }
+  },
+  {
+    id: "eloquent",
+    word: "eloquent",
+    phonetic: "ˈeləkwənt",
+    pos: "adjective",
+    date: "2 June 2026",
+    category: "General",
+    categoryIcon: "🗣️",
+    isFavorite: true,
+    definitions: [
+      "Fluent or persuasive in speaking or writing.",
+      "Clearly expressing or indicating something deep, powerful, or poignant without words."
+    ],
+    examples: [
+      "Her eloquent keynote address moved the entire auditorium to a standing ovation.",
+      "His prolonged silence was more eloquent than any speech he could have delivered.",
+      "The architect's design stood as an eloquent tribute to minimalist principles."
+    ],
+    synonyms: ["articulate", "persuasive", "expressive", "fluent", "silver-tongued", "poignant", "rhetorical"],
+    antonyms: ["inarticulate", "tongue-tied", "hesitant", "clumsy", "stammering"],
+    ai: {
+      simple: "Expressing thoughts so smoothly and gracefully that listeners are captivated, whether through spoken poetry or a silent glance.",
+      sentence: "An eloquent speaker doesn't just inform an audience; they evoke vivid pictures in their minds.",
+      mnemonic: "Shares Latin root 'loqui' (to speak) with 'dialogue', 'loquacious', and 'soliloquy'.",
+      tip: "Can describe people ('an eloquent advocate') or non-verbal gestures ('an eloquent silence', 'an eloquent gaze')."
+    }
+  },
+  {
+    id: "petrichor",
+    word: "petrichor",
+    phonetic: "ˈpetrəˌkôr",
+    pos: "noun",
+    date: "12 June 2026",
+    category: "Science",
+    categoryIcon: "🌧️",
+    isFavorite: false,
+    definitions: [
+      "A pleasant, distinctive smell that frequently accompanies the first rain after a long period of warm, dry weather.",
+      "The earthy scent produced when rain falls on dry soil, caused by aerosolization of geosmin and plant oils."
+    ],
+    examples: [
+      "As the summer thunderstorm broke, the sweet petrichor drifted through the open bedroom window.",
+      "Scientists discovered that the petrichor aroma is primarily released when raindrops trap tiny air bubbles against dusty earth.",
+      "Nothing evokes nostalgic memories of childhood summers quite like the scent of petrichor."
+    ],
+    synonyms: ["earthy scent", "rain aroma", "soil fragrance", "geosmin smell"],
+    antonyms: ["stale air", "mustiness"],
+    ai: {
+      simple: "That unmistakable, refreshing scent when sudden raindrops hit hot summer pavement or dry garden soil.",
+      sentence: "Stepping outside onto the veranda after the sudden downpour, she inhaled the intoxicating petrichor.",
+      mnemonic: "From Greek 'petra' (stone) + 'ichor' (the ethereal fluid that flowed in the veins of the Greek gods)!",
+      tip: "Scientific yet deeply poetic; often featured in creative writing when setting atmospheric outdoor scenes."
+    }
+  },
+  {
+    id: "sonder",
+    word: "sonder",
+    phonetic: "ˈsändər",
+    pos: "noun",
+    date: "25 June 2026",
+    category: "Daily Life",
+    categoryIcon: "☕",
+    isFavorite: true,
+    definitions: [
+      "The profound realization that each random passerby is living a life as vivid and complex as your own.",
+      "An awareness that everyone you pass has their own intricate web of dreams, heartbreaks, routines, and loved ones."
+    ],
+    examples: [
+      "Sitting in the bustling Tokyo subway station, a wave of sonder washed over him as thousands moved past.",
+      "Looking out at the lighted high-rise apartment windows at midnight filled her with intense sonder.",
+      "It takes a moment of sonder to realize that you are merely a nameless background extra in someone else's epic story."
+    ],
+    synonyms: ["empathic realization", "perspective shift", "human connection", "existential awareness"],
+    antonyms: ["solipsism", "egocentrism", "insularity"],
+    ai: {
+      simple: "Realizing that every person waiting at the red light with you has a whole universe inside their head with hopes, secrets, and late-night worries.",
+      sentence: "Standing on the pedestrian bridge at rush hour, the feeling of sonder reminded him how interconnected humanity truly is.",
+      mnemonic: "Coined by John Koenig in 'The Dictionary of Obscure Sorrows' — related to the German 'sonder-' (special).",
+      tip: "A modern neologism that has gained widespread cultural resonance for describing empathy in busy urban landscapes."
+    }
+  }
+];
+---
+
+<section class="simulator-section" id="demo">
+  <div class="container">
+    
+    <div class="simulator-header">
+      <div class="section-badge">Live Interactive Simulator</div>
+      <h2 class="section-title">
+        Experience Personal Dictionary<br />
+        <span class="text-gradient">Right in Your Browser.</span>
+      </h2>
+      <p class="section-subtitle">
+        Click between words, test the audio pronunciation with Web Speech, filter the vocabulary,
+        and explore dual-source definitions alongside on-device Apple Intelligence.
+      </p>
+    </div>
+
+    <!-- macOS Window Mockup -->
+    <div class="macos-window glass-panel" id="macos-simulator">
+      
+      <!-- macOS Window Titlebar -->
+      <div class="macos-titlebar">
+        <div class="traffic-lights">
+          <button class="traffic-btn close" title="Close" aria-label="Close window">
+            <svg viewBox="0 0 10 10" width="6" height="6"><path d="M1 1l8 8m0-8L1 9" stroke="#4d0000" stroke-width="1.4"/></svg>
+          </button>
+          <button class="traffic-btn minimize" title="Minimize" aria-label="Minimize window">
+            <svg viewBox="0 0 10 10" width="6" height="6"><path d="M1 5h8" stroke="#5a3d00" stroke-width="1.4"/></svg>
+          </button>
+          <button class="traffic-btn maximize" title="Zoom" aria-label="Zoom window">
+            <svg viewBox="0 0 10 10" width="6" height="6"><path d="M1 9l8-8M9 5V1H5M1 5v4h4" stroke="#003e00" stroke-width="1.2"/></svg>
+          </button>
+        </div>
+        
+        <div class="window-title-box">
+          <img src="/app-icon.png" alt="App Icon" width="16" height="16" class="window-mini-icon" />
+          <span class="window-title">Personal Dictionary — Sequoia Edition</span>
+        </div>
+
+        <div class="window-actions">
+          <button class="window-action-btn" id="filter-fav-btn" title="Filter Favorites" aria-label="Filter Favorites">
+            <span class="star-icon">★</span>
+            <span class="action-label">Favorites</span>
+          </button>
+          <div class="window-badge-pill">macOS 26</div>
+        </div>
+      </div>
+
+      <!-- App Body (Sidebar + Split Detail) -->
+      <div class="macos-body">
+        
+        <!-- Sidebar -->
+        <aside class="macos-sidebar">
+          <div class="sidebar-top">
+            <div class="sidebar-header">
+              <h3>My Vocabulary</h3>
+              <span class="word-counter" id="word-counter">{WORDS_DATABASE.length} words</span>
+            </div>
+            
+            <!-- Search Box -->
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" class="search-icon">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input 
+                type="text" 
+                id="word-search-input" 
+                placeholder="Search or ⌘K..." 
+                aria-label="Search words" 
+                autocomplete="off"
+              />
+              <span class="search-kbd">⌘K</span>
+            </div>
+          </div>
+
+          <!-- Words List -->
+          <div class="words-list" id="words-list" role="listbox">
+            {WORDS_DATABASE.map((item, index) => (
+              <button 
+                class={`word-item ${index === 0 ? 'active' : ''}`}
+                data-id={item.id}
+                data-word={item.word}
+                data-fav={item.isFavorite ? 'true' : 'false'}
+                role="option"
+                aria-selected={index === 0 ? 'true' : 'false'}
+              >
+                <div class="word-item-info">
+                  <div class="word-name-row">
+                    <span class="word-item-title">{item.word}</span>
+                    {item.isFavorite && <span class="word-item-star" title="Favorite">★</span>}
+                  </div>
+                  <div class="word-meta-row">
+                    <span class="word-item-pos">{item.pos}</span>
+                    <span class="word-item-cat">{item.categoryIcon} {item.category}</span>
+                  </div>
+                </div>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" class="chevron-icon">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </button>
+            ))}
+          </div>
+
+          <div class="sidebar-footer">
+            <div class="quick-add-tip">
+              <span class="tip-kbd">Services</span>
+              <span>Right-click any word ➔ Add to Dictionary</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Detail Pane -->
+        <main class="macos-detail" id="word-detail-pane">
+          
+          <!-- Detail Header -->
+          <div class="detail-header">
+            <div class="detail-title-group">
+              <div class="title-with-actions">
+                <h1 class="active-word-title" id="detail-word">venture</h1>
+                
+                <button class="speak-btn" id="speak-audio-btn" title="Speak pronunciation using Web Speech">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" class="audio-icon">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                  </svg>
+                  <span class="speak-label">Pronounce</span>
+                  <div class="sound-wave" id="sound-wave">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </button>
+
+                <button class="favorite-toggle-btn" id="toggle-fav-action" title="Toggle favorite">
+                  <span class="fav-icon filled" id="fav-star-icon">★</span>
+                </button>
+              </div>
+
+              <!-- Phonetic & Tags Bar -->
+              <div class="phonetic-meta-bar">
+                <span class="phonetic-badge" id="detail-phonetic">ˈven(t)SHər</span>
+                <span class="pos-badge" id="detail-pos">noun</span>
+                <span class="category-badge" id="detail-category">💼 Business</span>
+                <span class="date-badge" id="detail-date">📅 Added 3 May 2026</span>
+              </div>
+            </div>
+
+            <div class="system-dict-link-box">
+              <button class="system-dict-btn" id="open-dict-btn" title="Simulate opening in macOS Dictionary.app">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+                <span>Dictionary.app</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cards Scroll Area -->
+          <div class="detail-cards-stack">
+            
+            <!-- Definitions Card -->
+            <div class="detail-card glass-panel-inner def-card">
+              <div class="card-header">
+                <div class="card-icon def-icon">📝</div>
+                <div class="card-title-group">
+                  <h3>Dual-Source Definitions</h3>
+                  <span class="source-tag">macOS System Dictionary + API</span>
+                </div>
+              </div>
+              <ol class="definitions-list" id="detail-definitions">
+                <li>A risky or daring journey or undertaking.</li>
+                <li>A commercial enterprise or business undertaking involving considerable financial or operational risk.</li>
+                <li>To dare to do or say something that may be considered audacious or controversial.</li>
+              </ol>
+            </div>
+
+            <!-- Apple Intelligence Card -->
+            <div class="detail-card glass-panel-inner ai-card">
+              <div class="card-header">
+                <div class="card-icon ai-icon">✨</div>
+                <div class="card-title-group">
+                  <h3>Apple Intelligence Insights</h3>
+                  <span class="source-tag ai-tag">On-Device Foundation Models</span>
+                </div>
+              </div>
+              
+              <div class="ai-tabs-grid">
+                <div class="ai-item">
+                  <div class="ai-item-head">
+                    <span class="ai-item-emoji">💡</span>
+                    <strong>Simple Explanation</strong>
+                  </div>
+                  <p id="ai-simple">Think of a venture like jumping into something exciting but uncertain — like launching a startup or venturing into the deep woods with a compass.</p>
+                </div>
+
+                <div class="ai-item">
+                  <div class="ai-item-head">
+                    <span class="ai-item-emoji">✍️</span>
+                    <strong>Memorable Sentence</strong>
+                  </div>
+                  <p id="ai-sentence">Launching their open-source macOS app was an ambitious venture, but one that soon gained thousands of dedicated writers and linguists.</p>
+                </div>
+
+                <div class="ai-item">
+                  <div class="ai-item-head">
+                    <span class="ai-item-emoji">🧠</span>
+                    <strong>Memory Trick & Etymology</strong>
+                  </div>
+                  <p id="ai-mnemonic">Remember: 'Venture' shares its root with 'adVENTURE' — both require daring courage!</p>
+                </div>
+
+                <div class="ai-item">
+                  <div class="ai-item-head">
+                    <span class="ai-item-emoji">📝</span>
+                    <strong>Usage Guidance</strong>
+                  </div>
+                  <p id="ai-tip">Use 'joint venture' when two companies collaborate on a project; use 'venture forth' for dramatic or poetic movement.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Thesaurus & Synonyms Card -->
+            <div class="detail-card glass-panel-inner syn-card">
+              <div class="card-header">
+                <div class="card-icon syn-icon">🔤</div>
+                <div class="card-title-group">
+                  <h3>Rich Thesaurus</h3>
+                  <span class="source-tag">Datamuse API (Flow Layout)</span>
+                </div>
+              </div>
+              
+              <div class="syn-section">
+                <div class="syn-label">Synonyms ({WORDS_DATABASE[0].synonyms.length})</div>
+                <div class="tags-cloud" id="detail-synonyms">
+                  {WORDS_DATABASE[0].synonyms.map(syn => (
+                    <button class="syn-tag" data-word={syn}>{syn}</button>
+                  ))}
+                </div>
+              </div>
+
+              <div class="syn-section" style="margin-top: 14px;">
+                <div class="syn-label">Antonyms ({WORDS_DATABASE[0].antonyms.length})</div>
+                <div class="tags-cloud antonyms" id="detail-antonyms">
+                  {WORDS_DATABASE[0].antonyms.map(ant => (
+                    <span class="ant-tag">{ant}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Usage Examples Card -->
+            <div class="detail-card glass-panel-inner exp-card">
+              <div class="card-header">
+                <div class="card-icon exp-icon">💬</div>
+                <div class="card-title-group">
+                  <h3>Real-World Usage Examples</h3>
+                  <span class="source-tag">Literary & Modern Context</span>
+                </div>
+              </div>
+              <ul class="examples-list" id="detail-examples">
+                {WORDS_DATABASE[0].examples.map(exp => (
+                  <li>"{exp}"</li>
+                ))}
+              </ul>
+            </div>
+
+          </div>
+        </main>
+      </div>
+
+      <!-- Simulator Bottom Bar -->
+      <div class="macos-statusbar">
+        <div class="status-left">
+          <span class="status-dot"></span>
+          <span>SwiftData Engine Connected • Local Storage • Zero Network Latency</span>
+        </div>
+        <div class="status-right">
+          <span>Click any word or synonym to inspect</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Pass words database to client script safely -->
+<script define:vars={{ wordsDb: WORDS_DATABASE }}>
+  window.__DICTIONARY_DB__ = wordsDb;
+</script>
+
+<style>
+  .simulator-section {
+    padding: 60px 0 100px;
+    position: relative;
+  }
+
+  .simulator-header {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 48px;
+  }
+
+  /* macOS Window Frame */
+  .macos-window {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    background: rgba(14, 16, 23, 0.85);
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 
+      0 30px 100px rgba(0, 0, 0, 0.75),
+      0 0 80px rgba(99, 102, 241, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  /* Titlebar */
+  .macos-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    user-select: none;
+  }
+
+  .traffic-lights {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .traffic-btn {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.15s ease;
+  }
+
+  .traffic-btn svg {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  .traffic-lights:hover .traffic-btn svg {
+    opacity: 0.75;
+  }
+
+  .traffic-btn.close { background: #ff5f57; box-shadow: inset 0 1px 1px rgba(0,0,0,0.2); }
+  .traffic-btn.minimize { background: #febc2e; box-shadow: inset 0 1px 1px rgba(0,0,0,0.2); }
+  .traffic-btn.maximize { background: #28c840; box-shadow: inset 0 1px 1px rgba(0,0,0,0.2); }
+
+  .window-title-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .window-mini-icon {
+    border-radius: 4px;
+  }
+
+  .window-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+  }
+
+  .window-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .window-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .window-action-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .window-action-btn.active {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: rgba(245, 158, 11, 0.4);
+    color: var(--accent-amber);
+  }
+
+  .window-badge-pill {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  /* Body Layout */
+  .macos-body {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    min-height: 600px;
+    max-height: 720px;
+  }
+
+  /* Sidebar */
+  .macos-sidebar {
+    background: rgba(8, 10, 15, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .sidebar-top {
+    padding: 18px 16px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .sidebar-header h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .word-counter {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+  }
+
+  .search-box:focus-within {
+    border-color: var(--accent-primary);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.25);
+  }
+
+  .search-icon {
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 13px;
+    width: 100%;
+  }
+
+  .search-box input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .search-kbd {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .words-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .word-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s ease;
+    width: 100%;
+    color: inherit;
+  }
+
+  .word-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .word-item.active {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(236, 72, 153, 0.2));
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2);
+  }
+
+  .word-name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .word-item-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f1f5f9;
+  }
+
+  .word-item.active .word-item-title {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .word-item-star {
+    font-size: 12px;
+    color: var(--accent-amber);
+  }
+
+  .word-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2px;
+  }
+
+  .word-item-pos {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent-emerald);
+  }
+
+  .word-item-cat {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .chevron-icon {
+    color: var(--text-muted);
+    opacity: 0.5;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .word-item.active .chevron-icon {
+    color: var(--accent-cyan);
+    opacity: 1;
+    transform: translateX(2px);
+  }
+
+  .sidebar-footer {
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .quick-add-tip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+
+  .tip-kbd {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 11px;
+  }
+
+  /* Detail Pane */
+  .macos-detail {
+    padding: 32px 36px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: rgba(18, 20, 28, 0.4);
+  }
+
+  .detail-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .title-with-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .active-word-title {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .speak-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    color: #c7d2fe;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .speak-btn:hover {
+    background: rgba(99, 102, 241, 0.28);
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(99, 102, 241, 0.35);
+  }
+
+  .speak-btn.speaking {
+    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    color: #fff;
+    border-color: transparent;
+  }
+
+  .sound-wave {
+    display: none;
+    align-items: center;
+    gap: 2px;
+    height: 12px;
+  }
+
+  .speak-btn.speaking .sound-wave {
+    display: flex;
+  }
+
+  .speak-btn.speaking .audio-icon {
+    display: none;
+  }
+
+  .sound-wave span {
+    width: 2.5px;
+    background: #ffffff;
+    border-radius: 2px;
+    animation: waveBounce 0.6s ease-in-out infinite alternate;
+  }
+
+  .sound-wave span:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+  .sound-wave span:nth-child(2) { height: 12px; animation-delay: 0.2s; }
+  .sound-wave span:nth-child(3) { height: 8px; animation-delay: 0.3s; }
+  .sound-wave span:nth-child(4) { height: 10px; animation-delay: 0.4s; }
+
+  @keyframes waveBounce {
+    0% { transform: scaleY(0.4); }
+    100% { transform: scaleY(1.3); }
+  }
+
+  .favorite-toggle-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: all 0.2s ease;
+  }
+
+  .favorite-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--accent-amber);
+  }
+
+  .favorite-toggle-btn.is-active {
+    color: var(--accent-amber);
+    border-color: rgba(245, 158, 11, 0.4);
+    background: rgba(245, 158, 11, 0.12);
+  }
+
+  .phonetic-meta-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .phonetic-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    color: #94a3b8;
+  }
+
+  .pos-badge {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    text-transform: lowercase;
+  }
+
+  .category-badge, .date-badge {
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+
+  .system-dict-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .system-dict-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    color: #ffffff;
+  }
+
+  /* Cards Stack */
+  .detail-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .detail-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 20px 24px;
+    transition: border-color 0.2s ease;
+  }
+
+  .detail-card:hover {
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .card-icon {
+    font-size: 18px;
+  }
+
+  .card-title-group {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .card-title-group h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .source-tag {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .source-tag.ai-tag {
+    color: #c084fc;
+    font-weight: 600;
+  }
+
+  /* Definitions */
+  .definitions-list {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13.5px;
+    color: #cbd5e1;
+    line-height: 1.6;
+  }
+
+  .definitions-list li::marker {
+    color: var(--accent-primary);
+    font-weight: 700;
+  }
+
+  /* Apple Intelligence Grid */
+  .ai-tabs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .ai-item {
+    background: rgba(168, 85, 247, 0.06);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 10px;
+    padding: 14px;
+  }
+
+  .ai-item-head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #d8b4fe;
+    margin-bottom: 6px;
+  }
+
+  .ai-item p {
+    font-size: 12.5px;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+
+  /* Thesaurus Tags */
+  .syn-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .syn-tag {
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #7dd3fc;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+
+  .syn-tag:hover {
+    background: rgba(56, 189, 248, 0.25);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+  }
+
+  .ant-tag {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    color: #fda4af;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 8px;
+  }
+
+  /* Examples */
+  .examples-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .examples-list li {
+    font-size: 13px;
+    color: #94a3b8;
+    font-style: italic;
+    padding-left: 14px;
+    border-left: 2px solid var(--accent-gradient-start);
+    line-height: 1.5;
+  }
+
+  /* Status Bar */
+  .macos-statusbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+
+  .status-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-emerald);
+  }
+
+  @media (max-width: 960px) {
+    .macos-body {
+      grid-template-columns: 1fr;
+      max-height: none;
+    }
+
+    .macos-sidebar {
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      max-height: 280px;
+    }
+
+    .ai-tabs-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .detail-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
+
+<script>
+  // Interactive Simulator Logic
+  interface WordEntry {
+    id: string;
+    word: string;
+    phonetic: string;
+    pos: string;
+    date: string;
+    category: string;
+    categoryIcon: string;
+    isFavorite: boolean;
+    definitions: string[];
+    examples: string[];
+    synonyms: string[];
+    antonyms: string[];
+    ai: {
+      simple: string;
+      sentence: string;
+      mnemonic: string;
+      tip: string;
+    };
+  }
+
+  declare global {
+    interface Window {
+      __DICTIONARY_DB__: WordEntry[];
+    }
+  }
+
+  const db: WordEntry[] = window.__DICTIONARY_DB__ || [];
+  let currentWordId = 'venture';
+  let filterFavorites = false;
+
+  const searchInput = document.getElementById('word-search-input') as HTMLInputElement | null;
+  const wordCounterEl = document.getElementById('word-counter');
+  const filterFavBtn = document.getElementById('filter-fav-btn');
+
+  // Detail elements
+  const detailWord = document.getElementById('detail-word');
+  const detailPhonetic = document.getElementById('detail-phonetic');
+  const detailPos = document.getElementById('detail-pos');
+  const detailCategory = document.getElementById('detail-category');
+  const detailDate = document.getElementById('detail-date');
+  const detailDefs = document.getElementById('detail-definitions');
+  const detailSyns = document.getElementById('detail-synonyms');
+  const detailAnts = document.getElementById('detail-antonyms');
+  const detailExps = document.getElementById('detail-examples');
+  const aiSimple = document.getElementById('ai-simple');
+  const aiSentence = document.getElementById('ai-sentence');
+  const aiMnemonic = document.getElementById('ai-mnemonic');
+  const aiTip = document.getElementById('ai-tip');
+  const speakBtn = document.getElementById('speak-audio-btn');
+  const favToggleBtn = document.getElementById('toggle-fav-action');
+  const openDictBtn = document.getElementById('open-dict-btn');
+
+  function renderWord(wordObj: WordEntry) {
+    if (!wordObj) return;
+    currentWordId = wordObj.id;
+
+    if (detailWord) detailWord.textContent = wordObj.word;
+    if (detailPhonetic) detailPhonetic.textContent = wordObj.phonetic;
+    if (detailPos) detailPos.textContent = wordObj.pos;
+    if (detailCategory) detailCategory.textContent = `${wordObj.categoryIcon} ${wordObj.category}`;
+    if (detailDate) detailDate.textContent = `📅 Added ${wordObj.date}`;
+
+    // Render definitions
+    if (detailDefs) {
+      detailDefs.innerHTML = wordObj.definitions.map(d => `<li>${d}</li>`).join('');
+    }
+
+    // Render synonyms
+    if (detailSyns) {
+      detailSyns.innerHTML = wordObj.synonyms.map(s => 
+        `<button class="syn-tag" data-word="${s}">${s}</button>`
+      ).join('');
+
+      // Add click handlers to tags
+      detailSyns.querySelectorAll('.syn-tag').forEach(tag => {
+        tag.addEventListener('click', (e) => {
+          const targetWord = (e.currentTarget as HTMLElement).getAttribute('data-word');
+          if (targetWord) {
+            handleSynonymClick(targetWord);
+          }
+        });
+      });
+    }
+
+    // Render antonyms
+    if (detailAnts) {
+      detailAnts.innerHTML = wordObj.antonyms.map(a => 
+        `<span class="ant-tag">${a}</span>`
+      ).join('');
+    }
+
+    // Render examples
+    if (detailExps) {
+      detailExps.innerHTML = wordObj.examples.map(ex => `<li>"${ex}"</li>`).join('');
+    }
+
+    // Render AI
+    if (aiSimple) aiSimple.textContent = wordObj.ai.simple;
+    if (aiSentence) aiSentence.textContent = wordObj.ai.sentence;
+    if (aiMnemonic) aiMnemonic.textContent = wordObj.ai.mnemonic;
+    if (aiTip) aiTip.textContent = wordObj.ai.tip;
+
+    // Favorite state
+    if (favToggleBtn) {
+      favToggleBtn.classList.toggle('is-active', wordObj.isFavorite);
+    }
+
+    // Update active class in list
+    document.querySelectorAll('.word-item').forEach(btn => {
+      const match = btn.getAttribute('data-id') === wordObj.id;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-selected', match ? 'true' : 'false');
+    });
+  }
+
+  function handleSynonymClick(synWord: string) {
+    // If the word exists in our DB, select it!
+    const found = db.find(w => w.word.toLowerCase() === synWord.toLowerCase());
+    if (found) {
+      renderWord(found);
+    } else {
+      // Temporarily speak the synonym or notify
+      speakText(synWord);
+    }
+  }
+
+  function speakText(text: string) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.88;
+    utterance.pitch = 1.0;
+
+    if (speakBtn) {
+      speakBtn.classList.add('speaking');
+      utterance.onend = () => speakBtn.classList.remove('speaking');
+      utterance.onerror = () => speakBtn.classList.remove('speaking');
+    }
+
+    window.speechSynthesis.speak(utterance);
+  }
+
+  // Speak Button Handler
+  if (speakBtn) {
+    speakBtn.addEventListener('click', () => {
+      const current = db.find(w => w.id === currentWordId);
+      if (current) {
+        speakText(current.word);
+      }
+    });
+  }
+
+  // Toggle Favorite Handler
+  if (favToggleBtn) {
+    favToggleBtn.addEventListener('click', () => {
+      const current = db.find(w => w.id === currentWordId);
+      if (current) {
+        current.isFavorite = !current.isFavorite;
+        favToggleBtn.classList.toggle('is-active', current.isFavorite);
+        // Also update list item star
+        const listItem = document.querySelector(`.word-item[data-id="${current.id}"]`);
+        if (listItem) {
+          listItem.setAttribute('data-fav', current.isFavorite ? 'true' : 'false');
+          let star = listItem.querySelector('.word-item-star');
+          if (current.isFavorite && !star) {
+            const nameRow = listItem.querySelector('.word-name-row');
+            if (nameRow) {
+              const newStar = document.createElement('span');
+              newStar.className = 'word-item-star';
+              newStar.textContent = '★';
+              nameRow.appendChild(newStar);
+            }
+          } else if (!current.isFavorite && star) {
+            star.remove();
+          }
+        }
+      }
+    });
+  }
+
+  // Filter Favorites Handler
+  if (filterFavBtn) {
+    filterFavBtn.addEventListener('click', () => {
+      filterFavorites = !filterFavorites;
+      filterFavBtn.classList.toggle('active', filterFavorites);
+      filterList();
+    });
+  }
+
+  // Filter search input
+  function filterList() {
+    const query = (searchInput?.value || '').toLowerCase().trim();
+    let visibleCount = 0;
+
+    document.querySelectorAll('.word-item').forEach(el => {
+      const itemEl = el as HTMLElement;
+      const word = (itemEl.getAttribute('data-word') || '').toLowerCase();
+      const isFav = itemEl.getAttribute('data-fav') === 'true';
+
+      const matchesQuery = query === '' || word.includes(query);
+      const matchesFav = !filterFavorites || isFav;
+
+      if (matchesQuery && matchesFav) {
+        itemEl.style.display = 'flex';
+        visibleCount++;
+      } else {
+        itemEl.style.display = 'none';
+      }
+    });
+
+    if (wordCounterEl) {
+      wordCounterEl.textContent = `${visibleCount} word${visibleCount === 1 ? '' : 's'}`;
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterList);
+  }
+
+  // Keyboard shortcut: Cmd+K focuses search
+  window.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      searchInput?.focus();
+    }
+  });
+
+  // Attach word list click events
+  document.querySelectorAll('.word-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      const id = (e.currentTarget as HTMLElement).getAttribute('data-id');
+      const found = db.find(w => w.id === id);
+      if (found) {
+        renderWord(found);
+      }
+    });
+  });
+
+  // System dictionary button toast/simulation
+  if (openDictBtn) {
+    openDictBtn.addEventListener('click', () => {
+      const current = db.find(w => w.id === currentWordId);
+      const word = current ? current.word : 'venture';
+      alert(`In the native macOS app, clicking this opens Dictionary.app with the full definition for "${word}".`);
+    });
+  }
+</script>

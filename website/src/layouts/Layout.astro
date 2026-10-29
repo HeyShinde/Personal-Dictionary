@@ -1,0 +1,41 @@
+---
+import Seo from '../components/Seo.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <Seo title={title} description={description} />
+  </head>
+  <body>
+    <!-- Ambient Background Lighting -->
+    <div class="ambient-bg" aria-hidden="true">
+      <div class="ambient-orb ambient-orb-1"></div>
+      <div class="ambient-orb ambient-orb-2"></div>
+      <div class="ambient-orb ambient-orb-3"></div>
+      <div class="ambient-grid"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <Navbar />
+
+    <!-- Page Content -->
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <!-- Global Footer -->
+    <Footer />
+  </body>
+</html>
+

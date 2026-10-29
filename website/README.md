@@ -1,34 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Personal Dictionary — Official Website
 
-## Getting Started
+The official product website and documentation for **Personal Dictionary**, built with **Astro 7** and designed for seamless deployment on **Cloudflare Pages**.
 
-First, run the development server:
+## ✨ Features
+- **Astro 7 Framework**: Ultra-fast, zero-JS by default, instant loading static generation.
+- **Interactive macOS Tahoe Simulator**:
+  - Live interactive vocabulary viewer with 6 preloaded entries
+  - Real-time client-side search filtering (`⌘K` shortcut)
+  - Native Web Speech audio pronunciation playback with animated sound wave
+  - Dynamic favorite toggle (`★` / `☆`)
+  - Interactive synonyms tag chips
+- **Apple Sequoia / Tahoe Glassmorphic Design**:
+  - Deep space black theme with luminous ambient gradient lighting
+  - Responsive Bento grid showcasing all features
+  - Spotlight on-device Apple Intelligence architecture
+- **Ready for Cloudflare**:
+  - Fully static edge delivery (`dist/`)
+  - Pre-configured `wrangler.jsonc`
+  - Zero server cold start and infinite edge CDN caching
 
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js `v20+` or `v24+`
+- npm `v10+`
+
+### Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd website
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Local Development
+```bash
+npm run dev
+```
+Visit `http://localhost:4321` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build Production Bundle
+```bash
+npm run build
+```
+The compiled, optimized static assets will be output to the `dist/` directory.
 
-## Learn More
+### Preview Production Build
+```bash
+npm run preview
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ☁️ Deploying to Cloudflare Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Option 1: Cloudflare Pages Git Integration (Recommended)
+1. Go to the [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages**.
+2. Click **Create Application** → **Pages** → **Connect to Git**.
+3. Select your repository `HeyShinde/Personal-Dictionary`.
+4. Configure build settings:
+   - **Framework preset**: `Astro`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+   - **Root directory**: `website`
+5. Click **Save and Deploy**. Cloudflare will automatically build and deploy the site globally on every git push!
 
-## Deploy on Vercel
+### Option 2: Direct CLI Deployment via Wrangler
+You can deploy directly to Cloudflare Pages using Wrangler:
+```bash
+cd website
+# Build the website
+npm run build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Deploy dist folder to Cloudflare Pages
+npx wrangler pages deploy dist --project-name=personal-dictionary
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Option 3: Cloudflare Pages with SSR / Workers (Optional)
+If you wish to enable dynamic server-side rendering on Cloudflare Workers, uncomment `@astrojs/cloudflare` in `astro.config.mjs`:
+```javascript
+import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
+
+export default defineConfig({
+  output: 'server',
+  adapter: cloudflare({
+    imageService: 'passthrough',
+  }),
+});
+```
+
+---
+
+## 🛠 Project Structure
+```
+website/
+├── public/                 # Static assets (icons, favicons, DMG references)
+│   ├── app-icon.png
+│   ├── favicon.ico
+│   ├── icon.png
+│   └── apple-icon.png
+├── src/
+│   ├── components/         # Reusable Astro components
+│   │   ├── Navbar.astro
+│   │   ├── Hero.astro
+│   │   ├── AppSimulator.astro     # Interactive macOS app simulator
+│   │   ├── FeaturesBento.astro    # Bento grid of core capabilities
+│   │   ├── AppleIntelligence.astro# On-device AI deep dive
+│   │   ├── TechStack.astro        # Swift 6, SwiftUI architecture
+│   │   ├── InstallGuide.astro     # Download and DMG installation steps
+│   │   ├── Footer.astro
+│   │   └── Seo.astro              # OpenGraph, Twitter Cards, SEO
+│   ├── layouts/
+│   │   └── Layout.astro    # Global HTML wrapper and ambient background
+│   ├── styles/
+│   │   └── global.css      # Design tokens, keyframes, typography
+│   └── pages/
+│       └── index.astro     # Main landing page
+├── astro.config.mjs        # Astro configuration
+├── wrangler.jsonc          # Cloudflare Pages / Wrangler configuration
+└── package.json
+```

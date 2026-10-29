@@ -1,0 +1,562 @@
+---
+const CATEGORIES = [
+  { name: "General", icon: "🗣️", color: "#6366f1" },
+  { name: "Science", icon: "🔬", color: "#06b6d4" },
+  { name: "Technology", icon: "💻", color: "#3b82f6" },
+  { name: "Literature", icon: "📖", color: "#ec4899" },
+  { name: "Medicine", icon: "🩺", color: "#ef4444" },
+  { name: "Philosophy", icon: "✨", color: "#a855f7" },
+  { name: "Business", icon: "💼", color: "#f59e0b" },
+  { name: "Art", icon: "🎨", color: "#10b981" },
+  { name: "Music", icon: "🎵", color: "#8b5cf6" },
+  { name: "Law", icon: "⚖️", color: "#64748b" },
+  { name: "History", icon: "🏛️", color: "#d97706" },
+  { name: "Daily Life", icon: "☕", color: "#14b8a6" },
+];
+---
+
+<section class="features-section" id="features">
+  <div class="container">
+    
+    <div class="features-header">
+      <div class="section-badge">Crafted for macOS</div>
+      <h2 class="section-title">
+        Everything You Need<br />
+        <span class="text-gradient">To Build an Exceptional Lexicon.</span>
+      </h2>
+      <p class="section-subtitle">
+        Three data sources, intelligent fallback merging, and zero cloud lock-in.
+        No monthly subscriptions, no intrusive ads, and no internet required for core features.
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="bento-grid">
+      
+      <!-- Bento Item 1: Dual-Source Definitions (Wide Card) -->
+      <div class="bento-card bento-wide glass-panel">
+        <div class="bento-card-body">
+          <div class="bento-icon-pill" style="background: rgba(99, 102, 241, 0.15); color: #818cf8;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <h3>Dual-Source Definition Engine</h3>
+          <p class="bento-desc">
+            Never hit a blank definition. Seamlessly queries the built-in macOS System Dictionary
+            via <code>DCSCopyTextDefinition</code> and falls back to Free Dictionary API when needed.
+            Automatically parses and merges multiple parts of speech.
+          </p>
+
+          <div class="bento-visual dual-source-visual">
+            <div class="source-bubble system">
+              <span class="bubble-tag">macOS CoreServices</span>
+              <strong>System Dictionary</strong>
+              <span class="bubble-status">⚡ Instant Offline</span>
+            </div>
+            <div class="merge-arrow">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </div>
+            <div class="source-bubble api">
+              <span class="bubble-tag">Automatic Fallback</span>
+              <strong>Dictionary API</strong>
+              <span class="bubble-status">🌐 Extended Lexicon</span>
+            </div>
+            <div class="merge-arrow">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </div>
+            <div class="source-bubble unified">
+              <span class="bubble-tag">Result</span>
+              <strong>Unified Word Card</strong>
+              <span class="bubble-status">✨ Up to 5 Definitions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Item 2: Menu Bar Quick Add -->
+      <div class="bento-card glass-panel">
+        <div class="bento-card-body">
+          <div class="bento-icon-pill" style="background: rgba(236, 72, 153, 0.15); color: #f472b6;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3>Menu Bar Quick Add</h3>
+          <p class="bento-desc">
+            Copy any word in Safari, Xcode, or Books. Tap the persistent 📚 menu bar tray icon
+            and press Enter. It automatically pastes, fetches definitions, and saves to your library.
+          </p>
+          
+          <div class="menubar-mockup">
+            <div class="menubar-bar">
+              <div class="menubar-apple"></div>
+              <div class="menubar-appname">Personal Dictionary</div>
+              <div class="menubar-spacer"></div>
+              <div class="menubar-icon active">📚</div>
+              <div class="menubar-time">9:41 AM</div>
+            </div>
+            <div class="menubar-popover">
+              <div class="popover-input-row">
+                <span class="popover-cursor">|</span>
+                <span class="popover-text">serendipity</span>
+              </div>
+              <div class="popover-btn">Press ↵ Enter to Save</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Item 3: Rich Datamuse Thesaurus -->
+      <div class="bento-card glass-panel">
+        <div class="bento-card-body">
+          <div class="bento-icon-pill" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3>20+ Synonyms & Antonyms</h3>
+          <p class="bento-desc">
+            Deepen your writing nuance with Datamuse API integration. Features a custom native
+            SwiftUI <code>FlowLayout</code> rendering flowing tag chips with part-of-speech context.
+          </p>
+
+          <div class="chips-preview">
+            <span class="chip-bubble" style="color: #7dd3fc; border-color: rgba(56,189,248,0.3);">enterprise</span>
+            <span class="chip-bubble" style="color: #a5b4fc; border-color: rgba(99,102,241,0.3);">undertaking</span>
+            <span class="chip-bubble" style="color: #f472b6; border-color: rgba(236,72,153,0.3);">endeavor</span>
+            <span class="chip-bubble" style="color: #34d399; border-color: rgba(16,185,129,0.3);">gamble</span>
+            <span class="chip-bubble" style="color: #fbbf24; border-color: rgba(245,158,11,0.3);">exploit</span>
+            <span class="chip-bubble" style="color: #c084fc; border-color: rgba(168,85,247,0.3);">adventure</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Item 4: 12 Smart Categories (Wide Card) -->
+      <div class="bento-card bento-wide glass-panel">
+        <div class="bento-card-body">
+          <div class="bento-icon-pill" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+              <line x1="7" y1="7" x2="7.01" y2="7"/>
+            </svg>
+          </div>
+          <h3>12 Tailored Categories & Smart Organization</h3>
+          <p class="bento-desc">
+            Keep your vocabulary cleanly partitioned by domain. Categorize words in one tap,
+            mark favorites with a star, and sort dynamically by recency or alphabetical order.
+          </p>
+
+          <div class="categories-grid-preview">
+            {CATEGORIES.map(cat => (
+              <div class="category-chip" style={`--cat-color: ${cat.color};`}>
+                <span class="cat-icon">{cat.icon}</span>
+                <span class="cat-name">{cat.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Item 5: High-Fidelity Audio Pronunciation -->
+      <div class="bento-card glass-panel">
+        <div class="bento-card-body">
+          <div class="bento-icon-pill" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+          </div>
+          <h3>IPA & Audio Pronunciation</h3>
+          <p class="bento-desc">
+            Hear native speech audio playback powered by AVFoundation. Includes exact International
+            Phonetic Alphabet (IPA) transcriptions for flawless pronunciation.
+          </p>
+          <div class="audio-waveform-card">
+            <div class="audio-play-symbol">▶</div>
+            <div class="audio-lines">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="audio-ipa">/ˌserənˈdipədē/</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Item 6: 100% Offline & Private -->
+      <div class="bento-card glass-panel">
+        <div class="bento-card-body">
+          <div class="bento-icon-pill" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Private, Local & Resilient</h3>
+          <p class="bento-desc">
+            Your personal vocabulary never leaves your Mac. Powered by Apple SwiftData, your words
+            are saved locally with immediate lookup and zero third-party tracking.
+          </p>
+          <div class="privacy-checklist">
+            <div class="privacy-item">
+              <span class="check-icon">✓</span>
+              <span>No user accounts or sign-ups</span>
+            </div>
+            <div class="privacy-item">
+              <span class="check-icon">✓</span>
+              <span>Zero telemetry or analytics</span>
+            </div>
+            <div class="privacy-item">
+              <span class="check-icon">✓</span>
+              <span>100% On-Device AI inference</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .features-section {
+    padding: 100px 0;
+    position: relative;
+  }
+
+  .features-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 64px;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .bento-card {
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  .bento-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .bento-wide {
+    grid-column: span 2;
+  }
+
+  .bento-icon-pill {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .bento-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 12px;
+  }
+
+  .bento-desc {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .bento-desc code {
+    background: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* Dual Source Visual */
+  .dual-source-visual {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .source-bubble {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    flex: 1;
+  }
+
+  .source-bubble.unified {
+    background: rgba(99, 102, 241, 0.12);
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+
+  .bubble-tag {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .source-bubble strong {
+    font-size: 13px;
+    color: #ffffff;
+  }
+
+  .bubble-status {
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .merge-arrow {
+    color: var(--text-muted);
+  }
+
+  /* Menubar Mockup */
+  .menubar-mockup {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    border: 1px solid var(--border-subtle);
+    padding: 12px;
+  }
+
+  .menubar-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .menubar-apple {
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .menubar-appname {
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .menubar-spacer {
+    flex: 1;
+  }
+
+  .menubar-icon.active {
+    background: rgba(99, 102, 241, 0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .menubar-popover {
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .popover-input-row {
+    font-size: 13px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .popover-cursor {
+    color: var(--accent-cyan);
+    animation: pulseDot 1s infinite;
+  }
+
+  .popover-btn {
+    font-size: 11px;
+    font-weight: 600;
+    color: #a5b4fc;
+    background: rgba(99, 102, 241, 0.2);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+
+  /* Chips Preview */
+  .chips-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip-bubble {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid;
+  }
+
+  /* Categories Grid Preview */
+  .categories-grid-preview {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+  }
+
+  .category-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 12px;
+    color: #e2e8f0;
+    transition: all 0.2s ease;
+  }
+
+  .category-chip:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--cat-color);
+  }
+
+  /* Audio Waveform */
+  .audio-waveform-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .audio-play-symbol {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-gradient-start);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    padding-left: 2px;
+  }
+
+  .audio-lines {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    flex: 1;
+  }
+
+  .audio-lines span {
+    width: 3px;
+    border-radius: 3px;
+    background: #64748b;
+  }
+
+  .audio-lines span:nth-child(1) { height: 8px; }
+  .audio-lines span:nth-child(2) { height: 16px; background: var(--accent-cyan); }
+  .audio-lines span:nth-child(3) { height: 22px; background: var(--accent-primary); }
+  .audio-lines span:nth-child(4) { height: 12px; }
+  .audio-lines span:nth-child(5) { height: 20px; background: var(--accent-gradient-mid); }
+  .audio-lines span:nth-child(6) { height: 14px; }
+  .audio-lines span:nth-child(7) { height: 18px; background: var(--accent-gradient-end); }
+  .audio-lines span:nth-child(8) { height: 10px; }
+
+  .audio-ipa {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* Privacy Checklist */
+  .privacy-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .privacy-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #cbd5e1;
+  }
+
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .bento-wide {
+      grid-column: span 1;
+    }
+
+    .categories-grid-preview {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .dual-source-visual {
+      flex-direction: column;
+    }
+    .merge-arrow {
+      transform: rotate(90deg);
+    }
+    .categories-grid-preview {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+

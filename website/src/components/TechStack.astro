@@ -1,0 +1,162 @@
+---
+const STACK_ITEMS = [
+  {
+    layer: "User Interface",
+    tech: "SwiftUI",
+    desc: "Modern declarative interface featuring glassmorphic components, custom FlowLayout tags, and smooth Sequoia micro-animations."
+  },
+  {
+    layer: "Persistence Engine",
+    tech: "SwiftData",
+    desc: "Zero-latency, schema-backed offline database. Automatic indexing, relationships, and lightning-fast full-text searches."
+  },
+  {
+    layer: "Native Lexicon",
+    tech: "CoreServices",
+    desc: "Direct C-level bridge via DCSCopyTextDefinition into macOS built-in system dictionary bundles with complete offline access."
+  },
+  {
+    layer: "Extended Definitions",
+    tech: "Dictionary API",
+    desc: "Seamless fallback pipeline providing multi-sense definitions, phonetic IPA strings, and audio URLs without registration."
+  },
+  {
+    layer: "Rich Thesaurus",
+    tech: "Datamuse REST API",
+    desc: "Fast semantic synonym and antonym clustering algorithm pulling the 20 most relevant contextually matched terms."
+  },
+  {
+    layer: "On-Device Neural AI",
+    tech: "Foundation Models",
+    desc: "Apple Intelligence framework executing on the Apple Silicon Neural Engine for instant zero-cloud learning insights."
+  },
+  {
+    layer: "Audio Subsystem",
+    tech: "AVFoundation",
+    desc: "Hardware-accelerated MP3 audio streaming and playback buffer with automatic volume ducking and status delegates."
+  },
+  {
+    layer: "System Integration",
+    tech: "NSStatusBar & Services",
+    desc: "Persistent menu bar extra with clipboard auto-paste, and macOS Contextual Services menu integration."
+  }
+];
+---
+
+<section class="tech-stack-section" id="tech">
+  <div class="container">
+    
+    <div class="tech-header">
+      <div class="section-badge">Under the Hood</div>
+      <h2 class="section-title">
+        Engineered for Pure Performance<br />
+        <span class="text-gradient-cyan">Native macOS Architecture.</span>
+      </h2>
+      <p class="section-subtitle">
+        Zero Electron bloat. Built from scratch with Swift 6 and SwiftUI for instantaneous launch,
+        featherlight memory footprint, and deep macOS system integration.
+      </p>
+    </div>
+
+    <!-- Tech Grid -->
+    <div class="tech-grid">
+      {STACK_ITEMS.map((item) => (
+        <div class="tech-card glass-panel">
+          <div class="tech-layer-tag">{item.layer}</div>
+          <div class="tech-title-row">
+            <h3>{item.tech}</h3>
+            <span class="native-pill">Native</span>
+          </div>
+          <p class="tech-desc">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .tech-stack-section {
+    padding: 80px 0 100px;
+    position: relative;
+  }
+
+  .tech-header {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 56px;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .tech-card {
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    background: rgba(18, 20, 30, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  .tech-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+
+  .tech-layer-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-cyan);
+    margin-bottom: 8px;
+  }
+
+  .tech-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .tech-title-row h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .native-pill {
+    font-size: 10px;
+    font-weight: 700;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  .tech-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1100px) {
+    .tech-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
