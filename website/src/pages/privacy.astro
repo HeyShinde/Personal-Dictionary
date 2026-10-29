@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Privacy Policy — Personal Dictionary"
+  description="Personal Dictionary is 100% private and offline-first. Zero telemetry, zero analytics, zero user accounts, and local on-device Apple Intelligence."
+>
+  <div class="privacy-container container">
+    <div class="privacy-card glass-panel">
+      <div class="section-badge" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: #34d399;">
+        Privacy Commitment
+      </div>
+      
+      <h1 class="privacy-title">Privacy Policy</h1>
+      <p class="privacy-updated">Effective Date: October 2026 • Version 1.0</p>
+
+      <div class="privacy-content">
+        <section>
+          <h2>1. Fundamental Philosophy: Privacy by Architecture</h2>
+          <p>
+            Personal Dictionary is built upon a simple foundation: <strong>your vocabulary, notes, and searches belong exclusively to you.</strong>
+            We do not believe in monetizing user attention, tracking behavior, or collecting personal analytics.
+          </p>
+        </section>
+
+        <section>
+          <h2>2. Data Storage & Local Persistence</h2>
+          <p>
+            All words, categories, favorites, definitions, and Apple Intelligence notes are stored locally on your device using Apple's <strong>SwiftData</strong> framework.
+            This data never leaves your Mac, is not uploaded to our servers, and remains in your local sandbox.
+          </p>
+        </section>
+
+        <section>
+          <h2>3. On-Device Apple Intelligence</h2>
+          <p>
+            AI insights (Simple Explanation, Memorable Sentence, Memory Trick, and Usage Tip) are processed locally on your Mac's Apple Silicon Neural Engine via the native <strong>Foundation Models</strong> framework.
+            Prompts and definitions are never transmitted over the internet or logged to any cloud AI provider.
+          </p>
+        </section>
+
+        <section>
+          <h2>4. Network Requests & Third-Party APIs</h2>
+          <p>
+            Personal Dictionary only makes outbound network connections when you explicitly look up a word that requires online data:
+          </p>
+          <ul>
+            <li><strong>Free Dictionary API (api.dictionaryapi.dev)</strong>: Queried anonymously when a word cannot be found in the macOS offline system dictionary.</li>
+            <li><strong>Datamuse API (api.datamuse.com)</strong>: Queried anonymously to retrieve synonym and antonym suggestions.</li>
+            <li><strong>Pronunciation Audio Playback</strong>: When clicking to listen to pronunciation, audio is streamed directly from public CDN audio endpoints provided by the dictionary API.</li>
+          </ul>
+          <p>No IP addresses, advertising identifiers, or account identifiers are attached to these lookup queries.</p>
+        </section>
+
+        <section>
+          <h2>5. Zero Analytics & Zero Tracking</h2>
+          <p>
+            Neither the macOS application nor this website uses Google Analytics, tracking pixels, cookies, or telemetry frameworks.
+            We do not know who you are, how many words you search, or when you use the app.
+          </p>
+        </section>
+
+        <section>
+          <h2>6. Open Source Verification</h2>
+          <p>
+            Because Personal Dictionary is 100% open source under the MIT License, anyone can audit the Swift and Astro code directly on 
+            <a href="https://github.com/HeyShinde/Personal-Dictionary" target="_blank" rel="noopener noreferrer">GitHub</a>.
+          </p>
+        </section>
+      </div>
+
+      <div class="privacy-back-row">
+        <a href="/" class="btn-glow-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          <span>Back to Homepage</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .privacy-container {
+    padding-top: 140px;
+    padding-bottom: 80px;
+    max-width: 860px;
+  }
+
+  .privacy-card {
+    padding: 56px 48px;
+    border-radius: var(--radius-xl);
+  }
+
+  .privacy-title {
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+
+  .privacy-updated {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+  }
+
+  .privacy-content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    line-height: 1.7;
+    color: #cbd5e1;
+    font-size: 15px;
+  }
+
+  .privacy-content h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .privacy-content strong {
+    color: #ffffff;
+  }
+
+  .privacy-content ul {
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .privacy-content li::marker {
+    color: var(--accent-primary);
+  }
+
+  .privacy-content a {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+  }
+
+  .privacy-back-row {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  @media (max-width: 640px) {
+    .privacy-card {
+      padding: 36px 20px;
+    }
+  }
+</style>
+

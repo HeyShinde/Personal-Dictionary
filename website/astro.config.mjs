@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // Cloudflare Pages Static Hosting (recommended for marketing & documentation sites):
 // Zero cold start, global edge CDN caching, free tier friendly.
@@ -6,7 +7,8 @@ import { defineConfig } from 'astro/config';
 // and set: adapter: cloudflare({ imageService: 'passthrough' }), output: 'server'.
 export default defineConfig({
   output: 'static',
-  site: 'https://personal-dictionary.pages.dev',
+  site: 'https://dictionary.shindeaditya.com',
+  integrations: [sitemap()],
   build: {
     format: 'directory',
   },

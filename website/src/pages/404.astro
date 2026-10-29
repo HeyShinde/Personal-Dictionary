@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="404 — Page Not Found | Personal Dictionary"
+  description="The word or page you are looking for could not be found in our dictionary."
+>
+  <div class="container notfound-container">
+    <div class="notfound-card glass-panel">
+      <div class="notfound-badge">Error 404</div>
+      <h1 class="notfound-title">Word Not Found</h1>
+      <p class="notfound-sub">
+        The page you requested doesn't exist in our dictionary. It might have been moved, renamed, or never coined in the first place.
+      </p>
+
+      <div class="notfound-dict-mock">
+        <div class="dict-head">
+          <span class="dict-word">404</span>
+          <span class="dict-phonetic">/fɔːr-oʊ-fɔːr/</span>
+          <span class="dict-pos">noun</span>
+        </div>
+        <p class="dict-def">
+          1. An HTTP standard response code indicating that the client was able to communicate with a given server, but the server could not find what was requested.
+        </p>
+      </div>
+
+      <div class="notfound-actions">
+        <a href="/" class="btn-glow-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          <span>Return to Homepage</span>
+        </a>
+        <a href="https://github.com/HeyShinde/Personal-Dictionary" target="_blank" rel="noopener noreferrer" class="btn-glass-secondary">
+          <span>GitHub Repository</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .notfound-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+
+  .notfound-card {
+    max-width: 620px;
+    width: 100%;
+    padding: 56px 40px;
+    text-align: center;
+    border-radius: var(--radius-xl);
+  }
+
+  .notfound-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-rose);
+    background: rgba(244, 63, 94, 0.1);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .notfound-title {
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 14px;
+  }
+
+  .notfound-sub {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .notfound-dict-mock {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 32px;
+  }
+
+  .dict-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .dict-word {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .dict-phonetic {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .dict-pos {
+    font-size: 11px;
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+  }
+
+  .dict-def {
+    font-size: 13.5px;
+    color: #cbd5e1;
+    line-height: 1.6;
+  }
+
+  .notfound-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .notfound-card {
+      padding: 40px 20px;
+    }
+  }
+</style>
+

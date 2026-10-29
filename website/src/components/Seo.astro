@@ -4,16 +4,56 @@ interface Props {
   description?: string;
   image?: string;
   canonicalUrl?: string;
+  type?: string;
 }
 
 const {
   title = "Personal Dictionary — AI-Powered Vocabulary for macOS",
   description = "A gorgeous, AI-powered macOS app to build and master your personal vocabulary. Dual-source definitions, IPA audio pronunciation, 20+ synonyms per word, and on-device Apple Intelligence — 100% private & offline.",
   image = "/app-icon.png",
-  canonicalUrl = Astro.url.href,
+  canonicalUrl = new URL(Astro.url.pathname, Astro.site || "https://dictionary.shindeaditya.com").href,
+  type = "website",
 } = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : "https://dictionary.shindeaditya.com";
+const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+
+// Schema.org Structured Data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Personal Dictionary",
+  "operatingSystem": "macOS 26.0 or later (Apple Silicon)",
+  "applicationCategory": "EducationalApplication",
+  "description": description,
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "url": siteUrl,
+  "downloadUrl": "https://github.com/HeyShinde/Personal-Dictionary/releases/download/v1.0.1/Personal-Dictionary-v1.0.1.dmg",
+  "softwareVersion": "1.0.1",
+  "author": {
+    "@type": "Person",
+    "name": "Ajinkya Shinde",
+    "url": "https://github.com/HeyShinde"
+  },
+  "license": "https://opensource.org/licenses/MIT",
+  "featureList": [
+    "Dual-Source Definition Engine (macOS CoreServices + Free Dictionary API)",
+    "Datamuse Thesaurus with 20+ synonyms and antonyms",
+    "On-device Apple Intelligence insights powered by Foundation Models",
+    "IPA International Phonetic Alphabet notation and audio pronunciation",
+    "Persistent Menu Bar agent with clipboard auto-paste",
+    "System-wide macOS contextual service for quick word lookup",
+    "12 customizable topic categories",
+    "100% offline-first local storage via SwiftData with zero cloud telemetry"
+  ]
+};
 ---
 
+<!-- Core Meta -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
@@ -25,24 +65,35 @@ const {
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#070709" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={image} />
+<meta property="og:image" content={fullImageUrl} />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content="Personal Dictionary for macOS icon" />
+<meta property="og:site_name" content="Personal Dictionary" />
+<meta property="og:locale" content="en_US" />
 
 <!-- Twitter / X -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalUrl} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={image} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullImageUrl} />
+<meta name="twitter:creator" content="@HeyShinde" />
 
-<!-- Keywords & Meta -->
-<meta name="keywords" content="personal dictionary, macOS app, vocabulary builder, Apple Intelligence, macOS 26, Tahoe, Swift 6, SwiftUI, dictionary, thesaurus, offline dictionary" />
+<!-- Indexing & Keywords -->
+<meta name="keywords" content="personal dictionary, macOS dictionary app, vocabulary builder, Apple Intelligence, Foundation Models, macOS 26, Tahoe, Sequoia, Swift 6, SwiftUI, Datamuse, thesaurus, offline dictionary, open source mac apps" />
 <meta name="author" content="Ajinkya Shinde" />
 <meta name="robots" content="index, follow" />
 
+<!-- JSON-LD Structured Data for Rich Snippets -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
